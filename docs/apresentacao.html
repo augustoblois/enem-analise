@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ENEM — Desigualdade e Desempenho · Entrega 1</title>
+<style>
+  :root{
+    --bg:#0d1b2a; --bg2:#1b263b; --accent:#00b4d8; --accent2:#90e0ef;
+    --ink:#e0e6ed; --muted:#8d9bb0; --card:#1b263b; --line:#2e3e54;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html,body{height:100%;background:var(--bg);color:var(--ink);
+    font-family:'Segoe UI',system-ui,-apple-system,sans-serif;overflow:hidden}
+  .deck{height:100vh;width:100vw;position:relative}
+  .slide{position:absolute;inset:0;display:none;flex-direction:column;
+    justify-content:center;padding:6vh 9vw;animation:fade .35s ease}
+  .slide.active{display:flex}
+  @keyframes fade{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+  .tag{color:var(--accent);font-size:.95rem;font-weight:600;letter-spacing:.12em;
+    text-transform:uppercase;margin-bottom:1.2rem}
+  h1{font-size:3.4rem;line-height:1.1;margin-bottom:1rem}
+  h2{font-size:2.6rem;line-height:1.15;margin-bottom:1.8rem}
+  .big{font-size:2.2rem;line-height:1.3;font-weight:600;color:var(--accent2);
+    border-left:5px solid var(--accent);padding-left:1.4rem;margin:1rem 0 2rem}
+  ul{list-style:none;font-size:1.5rem;line-height:1.9}
+  ul li{padding-left:1.8rem;position:relative;margin-bottom:.4rem}
+  ul li::before{content:"";position:absolute;left:0;top:.75em;width:.7rem;height:.7rem;
+    background:var(--accent);border-radius:2px}
+  ol{font-size:1.4rem;line-height:1.8;padding-left:1.6rem}
+  ol li{margin-bottom:.5rem}
+  .meta{color:var(--muted);font-size:1.3rem;margin-top:1.6rem;line-height:1.7}
+  table{border-collapse:collapse;width:100%;font-size:1.25rem;margin-top:.5rem}
+  th,td{text-align:left;padding:.85rem 1.1rem;border-bottom:1px solid var(--line)}
+  th{color:var(--accent2);font-weight:600}
+  td.who{color:var(--muted)}
+  .cards{display:flex;gap:1.6rem;margin-top:1rem;flex-wrap:wrap}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;
+    padding:1.8rem;flex:1;min-width:280px}
+  .card h3{color:var(--accent);font-size:1.5rem;margin-bottom:1rem}
+  .card ul{font-size:1.2rem;line-height:1.7}
+  .card ul li::before{top:.65em;width:.55rem;height:.55rem}
+  .flow{display:flex;align-items:center;gap:.6rem;flex-wrap:wrap;font-size:1.25rem;margin-top:1.4rem}
+  .flow span{background:var(--card);border:1px solid var(--line);border-radius:10px;
+    padding:.7rem 1.1rem}
+  .flow b{color:var(--accent);margin:0 .2rem}
+  .recap{font-size:1.45rem;line-height:2.1}
+  .recap b{color:var(--accent2)}
+  .final{font-size:2rem;color:var(--accent2);margin-top:2rem;font-weight:600;line-height:1.4}
+  .who-primary{margin-top:1.6rem;background:var(--card);border:1px solid var(--accent);
+    border-radius:12px;padding:1.2rem 1.5rem;font-size:1.3rem}
+  .who-primary b{color:var(--accent)}
+  .nav{position:fixed;bottom:18px;right:26px;color:var(--muted);font-size:1rem;z-index:10}
+  .bar{position:fixed;top:0;left:0;height:4px;background:var(--accent);transition:width .3s;z-index:10}
+  .speaker{position:fixed;bottom:18px;left:26px;color:var(--muted);font-size:.95rem;z-index:10}
+  kbd{background:var(--card);border:1px solid var(--line);border-radius:5px;padding:1px 7px;font-size:.85rem}
+</style>
+</head>
+<body>
+<div class="bar" id="bar"></div>
+<div class="deck" id="deck">
+
+  <!-- 1 -->
+  <section class="slide active" data-speaker="Augusto">
+    <div class="tag">Análise de Dados · UFPB · 2026</div>
+    <h1>Desigualdade Socioeconômica<br>e Desempenho no ENEM</h1>
+    <p class="meta">Quem realmente passa no maior exame do Brasil?</p>
+    <p class="meta"><b>Augusto Blois</b> · <b>Pedro Flávio</b> &nbsp;—&nbsp; Entrega 1</p>
+  </section>
+
+  <!-- 2 -->
+  <section class="slide" data-speaker="Augusto">
+    <div class="tag">1 · Problema</div>
+    <div class="big">A educação brasileira reproduz desigualdade estrutural.</div>
+    <ul>
+      <li>Maior renda familiar vence</li>
+      <li>Filhos de pais com ensino superior vencem</li>
+      <li>Escola privada e regiões mais ricas vencem</li>
+    </ul>
+    <p class="meta">A magnitude, a variação no tempo e os fatores que mais explicam
+      seguem pouco explorados de forma <b>integrada e visual</b>.</p>
+  </section>
+
+  <!-- 3 -->
+  <section class="slide" data-speaker="Augusto">
+    <div class="tag">1 · Objetivo</div>
+    <div class="big">Quantificar, visualizar e comunicar as disparidades no desempenho do ENEM — com atenção ao Nordeste.</div>
+    <p class="meta" style="margin-top:0">Objetivos específicos:</p>
+    <ol>
+      <li>Medir relação <b>renda × nota</b> nas 5 áreas</li>
+      <li>Quantificar <b>gap escola pública vs. privada</b> (2022 vs. 2023)</li>
+      <li>Testar <b>disparidade regional</b> controlando renda e escola</li>
+      <li>Modelar <b>preditores combinados</b> (meta R² ≥ 0,30)</li>
+      <li>Traçar <b>perfil da nota 1000</b> em Redação</li>
+    </ol>
+  </section>
+
+  <!-- 4 -->
+  <section class="slide" data-speaker="Augusto">
+    <div class="tag">2 · Público-alvo</div>
+    <h2>Quem usa o produto</h2>
+    <table>
+      <tr><th>Perfil</th><th>Uso esperado</th></tr>
+      <tr><td>Gestor de política educacional</td><td class="who">Priorizar regiões e perfis para intervenção</td></tr>
+      <tr><td>Pesquisador / docente</td><td class="who">Base analítica sobre desigualdade escolar</td></tr>
+      <tr><td>Equipe pedagógica</td><td class="who">Contextualizar desempenho vs. perfil</td></tr>
+      <tr><td>Jornalista de dados</td><td class="who">Narrativas visuais de equidade</td></tr>
+    </table>
+    <div class="who-primary">Tomador primário: <b>gestor de política pública</b> — precisa de evidência
+      quantitativa para priorizar investimento e ação afirmativa.</div>
+  </section>
+
+  <!-- 5 -->
+  <section class="slide" data-speaker="Pedro">
+    <div class="tag">3 · Valor</div>
+    <h2>Dado bruto → evidência acionável</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>Dashboard interativo</h3>
+        <ul>
+          <li>Filtros: ano · UF · escola · renda</li>
+          <li>Mapa coroplético por estado</li>
+          <li>Comparação entre grupos</li>
+          <li>Correlação renda × nota</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Relatório técnico</h3>
+        <ul>
+          <li>Respostas às 5 perguntas</li>
+          <li>Modelo preditivo (R², MAE)</li>
+          <li>Conclusões e limitações</li>
+        </ul>
+      </div>
+    </div>
+    <p class="meta">Transforma gigabytes de microdados em evidência visual que o gestor usa para agir.</p>
+  </section>
+
+  <!-- 6 -->
+  <section class="slide" data-speaker="Pedro">
+    <div class="tag">4 · Viabilidade</div>
+    <h2>Executável no prazo</h2>
+    <ul>
+      <li><b>Dados:</b> Microdados ENEM (INEP) — públicos, sem autenticação · risco nulo</li>
+      <li><b>Edições:</b> 2022 + 2023 (~2–4 GB cada)</li>
+      <li><b>Stack:</b> Python · pandas · scikit-learn · Streamlit</li>
+    </ul>
+    <div class="flow">
+      <span>Extração</span><b>→</b><span>Tratamento</span><b>→</b><span>EDA</span><b>→</b>
+      <span>Modelagem</span><b>→</b><span>Visualização</span><b>→</b><span>Entrega</span>
+    </div>
+    <p class="meta">Plano em 6 semanas, etapa a etapa.</p>
+  </section>
+
+  <!-- 7 -->
+  <section class="slide" data-speaker="Pedro">
+    <div class="tag">Fecho</div>
+    <p class="recap">
+      <b>Problema:</b> desigualdade estrutural pouco medida de forma integrada<br>
+      <b>Objetivo:</b> quantificar, visualizar, comunicar<br>
+      <b>Quem usa:</b> gestor de política pública<br>
+      <b>Valor:</b> dado bruto → evidência acionável<br>
+      <b>Viável:</b> dados públicos + 6 semanas
+    </p>
+    <p class="final">Desigualdade educacional medida, mapeada e comunicada —<br>pronta para virar política.</p>
+  </section>
+
+</div>
+
+<div class="speaker" id="speaker"></div>
+<div class="nav"><span id="counter"></span> &nbsp; <kbd>←</kbd> <kbd>→</kbd></div>
+
+<script>
+  const slides=[...document.querySelectorAll('.slide')];
+  let i=0;
+  function show(n){
+    i=Math.max(0,Math.min(slides.length-1,n));
+    slides.forEach((s,k)=>s.classList.toggle('active',k===i));
+    document.getElementById('counter').textContent=(i+1)+' / '+slides.length;
+    document.getElementById('bar').style.width=((i+1)/slides.length*100)+'%';
+    document.getElementById('speaker').textContent='🎤 '+(slides[i].dataset.speaker||'');
+  }
+  document.addEventListener('keydown',e=>{
+    if(['ArrowRight','ArrowDown',' ','PageDown'].includes(e.key)){e.preventDefault();show(i+1)}
+    if(['ArrowLeft','ArrowUp','PageUp'].includes(e.key)){e.preventDefault();show(i-1)}
+    if(e.key==='Home')show(0); if(e.key==='End')show(slides.length-1);
+  });
+  document.addEventListener('click',e=>{if(e.clientX>window.innerWidth/2)show(i+1);else show(i-1)});
+  show(0);
+</script>
+</body>
+</html>
