@@ -1,0 +1,44 @@
+# === Dados (NUNCA versionar — microdados ENEM têm 2-4 GB/edição) ===
+data/*
+!data/.gitkeep
+*.csv
+*.zip
+*.parquet
+*.feather
+
+# === Python ===
+__pycache__/
+*.py[cod]
+*.egg-info/
+.Python
+build/
+dist/
+
+# Ambientes virtuais
+.venv/
+venv/
+env/
+ENV/
+
+# === Jupyter ===
+.ipynb_checkpoints/
+*/.ipynb_checkpoints/
+
+# === Streamlit ===
+.streamlit/secrets.toml
+
+# === Ferramentas / cache ===
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.ipynb_checkpoints
+
+# === OS ===
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# === Editores ===
+.vscode/
+.idea/
+*.swp
