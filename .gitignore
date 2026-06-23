@@ -42,3 +42,7 @@ desktop.ini
 .vscode/
 .idea/
 *.swp
+
+# === Ferramentas de IA (instrucoes locais, fora do versionamento) ===
+CLAUDE.md
+.claude/
